@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk of Raindomiser</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <img src="resources/logo.png" alt="">
+    </header>
+    <main>
+        <button id="button" onclick="randomise()">
+            <svg style="fill-rule: evenodd" width="50" height="50" viewBox="0 0 24 24" focusable="false"
+                role="presentation">
+                <path mask="url(#holes)" d="M0 2 Q 0 0 2 0 L 22 0 Q 24 0 24 2 L 24 22 Q 24 24 22 24 L 2 24 Q 0 24 0 22"
+                    fill="white"></path>
+                <defs>
+                    <mask id="holes">
+                        <rect width="100%" height="100%" fill="white"></rect>
+                        <circle cx=6 cy=6 r=2 fill="black"></circle>
+                        <circle cx=18 cy=6 r=2 fill="black"></circle>
+                        <circle cx=12 cy=12 r=2 fill="black"></circle>
+                        <circle cx=18 cy=18 r=2 fill="black"></circle>
+                        <circle cx=6 cy=18 r=2 fill="black"></circle>
+                    </mask>
+                </defs>
+            </svg>
+        </button>
+        <div class="characters">
+            <div class="character"><img src="resources/acrid.png" alt=""></div>
+            <div class="character"><img src="resources/artificer.png" alt=""></div>
+            <div class="character"><img src="resources/commando.png" alt=""></div>
+            <div class="character"><img src="resources/engineer.png" alt=""></div>
+            <div class="character"><img src="resources/huntress.png" alt=""></div>
+            <div class="character"><img src="resources/loader.png" alt=""></div>
+            <div class="character"><img src="resources/mercenary.png" alt=""></div>
+            <div class="character"><img src="resources/mult.png" alt=""></div>
+            <div class="character"><img src="resources/rex.png" alt=""></div>
+        </div>
+    </main>
+    <script>
+        const characters = Array.from(document.getElementsByClassName('character'));
+        const button = document.getElementById('button');
+        function choose(choices) {
+            const index = Math.floor(Math.random() * choices.length);
+            return choices[index];
+        }
+        function randomise() {
+            characters.forEach(c => c.classList.remove('selected'));
+            button.classList.add('fast')
+            setTimeout(() => {
+                choose(characters).classList.add('selected');
+                button.classList.remove('fast');
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

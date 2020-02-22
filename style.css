@@ -1,0 +1,65 @@
+body {
+    background-color: #001122;
+}
+
+header {
+    text-align: center;
+}
+
+main {
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.characters {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.character {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+}
+
+.character:hover {
+    width:  100px;
+    height: 100px;
+}
+
+.character.selected {
+    width: 150px;
+    height: 150px;
+}
+
+.character > img {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    animation: rotation 10s infinite linear;
+    margin: 20px;
+    outline: none !important;
+    padding: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border: none;
+    transition: animation-duration 2s ease-in;
+}
+
+button.fast {
+    animation-duration: 1s;
+}
+
+@keyframes rotation {
+    from {
+            -webkit-transform: rotate(0deg);
+    }
+    to {
+            -webkit-transform: rotate(359deg);
+    }
+}
